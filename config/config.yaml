@@ -1,0 +1,77 @@
+etcd-addr: 127.0.0.1:2379
+
+server:
+  jwt-secret: MTAxNTkwMTg1Mw==
+  version: "1.0"
+  name: DouServer
+
+snowflake:
+  worker-id: 0
+  datancenter-id: 0
+
+mysql:
+  addr: 127.0.0.1:3306
+  database: DouServer
+  username: DouServer
+  password: DouServer
+  charset: utf8mb4
+
+# you need to complete this config to use video service
+oss:
+  endpoint:
+  accessKey-id:
+  accessKey-secret:
+  bucketname:
+  main-directory: DouServer
+
+elasticsearch:
+  addr: 127.0.0.1:9200
+  host: 127.0.0.1
+
+etcd:
+  addr: 127.0.0.1:2379
+
+rabbitmq:
+  addr: 127.0.0.1:5672
+  username: DouServer
+  password: DouServer
+
+redis:
+  addr: 127.0.0.1:6379
+  password: DouServer
+
+jaeger:
+  addr: 127.0.0.1:6831
+
+# if you deploy in different machines, remember to modify IP.
+services:
+  api:
+    name: api
+    load-balance: false
+    addr:
+      - 127.0.0.1:10001
+  user:
+    name: user
+    load-balance: false
+    addr:
+      - 127.0.0.1:10002
+  chat:
+    name: chat
+    load-balance: false
+    addr:
+      - 127.0.0.1:10003
+  follow:
+    name: follow
+    load-balance: false
+    addr:
+      - 127.0.0.1:10004
+  interaction:
+    name: interaction
+    load-balance: false
+    addr:
+      - 127.0.0.1:10005
+  video:
+    name: video
+    load-balance: false
+    addr:
+      - 127.0.0.1:10006
